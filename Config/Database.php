@@ -1,40 +1,42 @@
 <?php
 
-class database
+
+class Database
 {
-    private $servername = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $conn;
+    private $SERVERNAME = "localhost";
+    private $USERNAME = "root";
+    private $PASSWORD = "";
+    private $BD_NAME = "petitplat";
+    private $TABLE_NAME = "menu";
 
     public function createDB()
     {
         // Create connection
-        $this->conn = new mysqli($this->servername, $this->username, $this->password);
+        $CONN = new mysqli($this->SERVERNAME, $this->USERNAME, $this->PASSWORD);
 
         // Check connection
-        if ($this->conn->connect_error) {
-            die("Connection failed: " . $this->conn->connect_error);
+        if ($CONN->connect_error) {
+            die("Connection failed: " . $CONN->connect_error);
         }
         echo "Connection established successfully";
 
 
         //sql query to create a database named petit-plat
-        $query = "CREATE DATABASE petitplat";
-        if ($this->conn->query($query)) {
+        $query = "CREATE DATABASE {$this->BD_NAME}";
+        if ($CONN->query($query)) {
             echo "Database created successfully";
         } else {
-            echo "Error creating database: " . $this->conn->error;
+            echo "Error creating database: " . $CONN->error;
         }
-        $this->conn->close();
+        $CONN->close();
     }
 
 
     // sql to create table
     public function createTable()
     {
-        $this->conn = new mysqli($this->servername, $this->username, $this->password, 'petitplat');
-        $sqlTable = "CREATE TABLE menu (
+        $CONN = new mysqli($this->SERVERNAME, $this->USERNAME, $this->PASSWORD, $this->BD_NAME);
+        $sqlTable = "CREATE TABLE {$this->TABLE_NAME} (
             id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             names VARCHAR(30) NOT NULL,
             imageURL VARCHAR(300) NOT NULL,
@@ -43,17 +45,17 @@ class database
             postdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
             )";
 
-        if ($this->conn->query($sqlTable)) {
+        if ($CONN->query($sqlTable)) {
             echo "Table menu created successfully";
         } else {
-            echo "Error creating table: " . $this->conn->error;
+            echo "Error creating table: " . $CONN->error;
         }
 
-        $this->conn->close();
+        $CONN->close();
     }
 }
 
-$connection = new database();
+$connection = new Database();
 
-// echo $connection->createDB();
+echo $connection->createDB();
 echo $connection->createTable();
