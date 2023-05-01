@@ -17,7 +17,8 @@ $data = json_decode(file_get_contents("php://input"));
 
 if (
     !empty($data->names) && !empty($data->descriptions) &&
-    !empty($data->amount) && !empty($data->imageURL)
+    !empty($data->amount) && !empty($data->imageURL) &&
+    !empty($data->created)
 ) {
 
     $items->NAMES = $data->names;
