@@ -30,7 +30,7 @@ class Items
         $this->POSTDATE = htmlspecialchars(strip_tags($this->POSTDATE));
 
 
-        $STATEMENT->bind_param("ssisd", $this->NAMES, $this->IMAGEURL, $this->AMOUNT, $this->DESCRIPTIONS, $this->POSTDATE);
+        $STATEMENT->bind_param("ssiss", $this->NAMES, $this->IMAGEURL, $this->AMOUNT, $this->DESCRIPTIONS, $this->POSTDATE);
 
         if ($STATEMENT->execute()) {
             return true;
@@ -50,5 +50,29 @@ class Items
         $STATEMENT->execute();
         $result = $STATEMENT->get_result();
         return $result;
+    }
+
+    function update()
+    {
+
+        $stmt = $this->CONN->prepare("
+            UPDATE " . $this->TABLE_NAME . " 
+            SET names= ?, imageUrl = ?, amount = ?, descriptions = ?, postdate = ? 
+            WHERE id = ?");
+
+        $this->ID = htmlspecialchars(strip_tags($this->ID));
+        $this->NAMES = htmlspecialchars(strip_tags($this->NAMES));
+        $this->DESCRIPTIONS = htmlspecialchars(strip_tags($this->DESCRIPTIONS));
+        $this->AMOUNT = htmlspecialchars(strip_tags($this->AMOUNT));
+        $this->IMAGEURL = htmlspecialchars(strip_tags($this->IMAGEURL));
+        $this->POSTDATE = htmlspecialchars(strip_tags($this->POSTDATE));
+
+        $stmt->bind_param("ssissi", $this->NAMES, $this->IMAGEURL, $this->AMOUNT, $this->DESCRIPTIONS, $this->POSTDATE, $this->ID);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+
+        return false;
     }
 }

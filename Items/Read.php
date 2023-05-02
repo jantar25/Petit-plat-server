@@ -11,6 +11,7 @@ $db = $database->getConnection();
 $items = new Items($db);
 
 $items->ID = (isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0';
+echo $items->ID;
 
 $result = $items->read();
 
