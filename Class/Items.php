@@ -55,7 +55,7 @@ class Items
     function update()
     {
 
-        $stmt = $this->CONN->prepare("
+        $STATEMENT = $this->CONN->prepare("
             UPDATE " . $this->TABLE_NAME . " 
             SET names= ?, imageUrl = ?, amount = ?, descriptions = ?, postdate = ? 
             WHERE id = ?");
@@ -67,9 +67,27 @@ class Items
         $this->IMAGEURL = htmlspecialchars(strip_tags($this->IMAGEURL));
         $this->POSTDATE = htmlspecialchars(strip_tags($this->POSTDATE));
 
-        $stmt->bind_param("ssissi", $this->NAMES, $this->IMAGEURL, $this->AMOUNT, $this->DESCRIPTIONS, $this->POSTDATE, $this->ID);
+        $STATEMENT->bind_param("ssissi", $this->NAMES, $this->IMAGEURL, $this->AMOUNT, $this->DESCRIPTIONS, $this->POSTDATE, $this->ID);
 
-        if ($stmt->execute()) {
+        if ($STATEMENT->execute()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    function delete()
+    {
+
+        $STATEMENT = $this->CONN->prepare("
+            DELETE FROM " . $this->TABLE_NAME . " 
+            WHERE id = ?");
+
+        $this->ID = htmlspecialchars(strip_tags($this->ID));
+
+        $STATEMENT->bind_param("i", $this->ID);
+
+        if ($STATEMENT->execute()) {
             return true;
         }
 
