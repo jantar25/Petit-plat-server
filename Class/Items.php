@@ -2,8 +2,9 @@
 
 class Items
 {
-    private $CONN;
     private $TABLE_NAME = "menu";
+    private $CONN;
+    public $ID;
     public $NAMES;
     public $DESCRIPTIONS;
     public $AMOUNT;
@@ -40,14 +41,14 @@ class Items
 
     function read()
     {
-        if ($this->id) {
-            $stmt = $this->conn->prepare("SELECT * FROM " . $this->itemsTable . " WHERE id = ?");
-            $stmt->bind_param("i", $this->id);
+        if ($this->ID) {
+            $STATEMENT = $this->CONN->prepare("SELECT * FROM " . $this->TABLE_NAME . " WHERE id = ?");
+            $STATEMENT->bind_param("i", $this->ID);
         } else {
-            $stmt = $this->conn->prepare("SELECT * FROM " . $this->itemsTable);
+            $STATEMENT = $this->CONN->prepare("SELECT * FROM " . $this->TABLE_NAME);
         }
-        $stmt->execute();
-        $result = $stmt->get_result();
+        $STATEMENT->execute();
+        $result = $STATEMENT->get_result();
         return $result;
     }
 }

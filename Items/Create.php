@@ -25,7 +25,7 @@ if (
     $items->DESCRIPTIONS = $data->descriptions;
     $items->AMOUNT = $data->amount;
     $items->IMAGEURL = $data->imageURL;
-    $items->POSTDATE = date('Y-m-d H:i:s');
+    $items->POSTDATE = $data->created;
 
     if ($items->create()) {
         http_response_code(201);
