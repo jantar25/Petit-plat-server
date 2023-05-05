@@ -1,0 +1,87 @@
+.Card-container {
+    flex: 1;
+    min-width: 250px;
+    padding: .5rem 1rem;
+    margin: .5rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    transition: .2s ease-in;
+}
+
+.Card-container:hover {
+    transform: skewY(1deg);
+}
+
+.Card-container-up {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Card-container-up h2 {
+    color: #073b5c;
+}
+
+.deposit,
+.interest,
+.clients {
+    height: 50px;
+    width: 50px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.deposit {
+    color: #004B77;
+    background: #cee2ee;
+}
+
+.interest {
+    color: rgb(4, 68, 4);
+    background: rgb(196, 230, 196);
+}
+
+.clients {
+    color: rgb(204, 134, 5);
+    background: rgb(231, 218, 194);
+}
+
+.Card-container-middle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    color: #004B77;
+}
+
+.card-amount-container h2 {
+    margin: 0;
+}
+
+.arrow-container {
+    display: inline;
+    margin-left: 10px;
+}
+
+.arrow-container span {
+    margin-left: 5px;
+}
+
+.increase {
+    color: rgb(9, 105, 9);
+    font-weight: 600;
+}
+
+.decrease {
+    color: rgb(204, 12, 12);
+    font-weight: 600;
+}
+
+.Card-container-bottom {
+    color: rgb(136, 134, 134);
+}

@@ -1,0 +1,73 @@
+.dashbord-header-container {
+    height: 80px;
+    position: sticky;
+    top: 0;
+    padding: 0 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #015C92;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    z-index: 10;
+}
+
+.dashbord-header-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.dashbord-header-left img {
+    width: 4rem;
+    margin-right: 2rem;
+}
+.dashbord-header-left .menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 2.5rem;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dashbord-header-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.dashbord-header-icon {
+    width: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.dashbord-header-avatar {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.dashbord-header-title {
+    margin-left: 10px;
+    color: #fff;
+}
+
+.dashbord-header-title h4 {
+    margin: 0;
+}
+
+.dashbord-header-title span {
+    font-size: 10px;
+}
+
+@media screen and (max-width: 480px) {
+    .dashbord-header-container{
+        padding: 0 1rem;
+    }
+    .dashbord-header-title,
+    .dashbord-header-left img {
+      display: none;
+    }
+  }
