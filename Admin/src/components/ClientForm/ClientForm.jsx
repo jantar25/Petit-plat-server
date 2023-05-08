@@ -1,12 +1,14 @@
 import React,{ useState } from 'react'
 
 import './index.css'
+import { storage } from '../../Firebase/Firebase'
 
 const ClientForm = ({toggleForm}) => {
+    const [image,setImage] = useState()
     const [inputs,setInputs] = useState({
         name:'',
         price:'',
-        description:''
+        description:'',
     })
     
     const handleChange = (e) => {
@@ -15,12 +17,35 @@ const ClientForm = ({toggleForm}) => {
 
     const hanldeSubmit = (e) => {
         e.preventDefault()
-        console.log(inputs)
-        setInputs({
-            name:'',
-            price:'',
-            description:''
-        })
+        if(image && inputs.name !== "" && inputs.price !== "" && inputs.description !== ""){
+            const uploadTask = storage.ref().child(`images/${image.name}`).put(image);
+            uploadTask.on(
+              'state_changed',
+              snapshot => {},
+              error => {
+                console.log(error)
+              },
+              () => {
+                storage
+                .ref('images')
+                .child(image.name)
+                .getDownloadURL()
+                .then(url => {
+                const updatedInputs = {...inputs,image: url};
+                console.log(updatedInputs)
+                setImage('')
+                setInputs({
+                    name:'',
+                    price:'',
+                    description:''
+                })
+                toggleForm()
+                })
+              }
+              )
+          } else {
+            console.log('inputs all filds')
+          }
     }
   return (
     <div className='form-container'>
@@ -40,6 +65,10 @@ const ClientForm = ({toggleForm}) => {
                     <div className='input-container'>
                         <label htmlFor='description'>Description:</label>
                         <textarea name='description' value={inputs.description}  type='text' placeholder='description' onChange={handleChange} />
+                    </div>
+                    <div className='input-container'>
+                        <label htmlFor='price'>Image:</label>
+                        <input name='image' type="file" accept='Image/*' placeholder='image' onChange={(e)=>setImage(e.target.files[0])} />
                     </div>
                 </div>
             </div>
