@@ -1,32 +1,32 @@
 import DashboardIcon from '../assets/icons/dashboard.svg';
 import NotificationIcon from '../assets/icons/notification.svg';
 import ClientsIcon from '../assets/icons/shipping.svg';
-import UserIcon from '../assets/icons/user.svg';
+import PoductsIcon from '../assets/icons/product.svg';
 
 const sidebar_menu = [
     {
         id: 1,
         icon: DashboardIcon,
         path: '/',
-        title: 'Accueil',
+        title: 'Dashboard',
     },
     {
         id: 2,
-        icon: ClientsIcon,
-        path: '/clients',
-        title: 'Clients',
+        icon: PoductsIcon,
+        path: '/products',
+        title: 'Products',
     },
     {
         id: 3,
-        icon: NotificationIcon,
-        path: '/rapport',
-        title: 'Rapport',
+        icon: ClientsIcon,
+        path: '/orders',
+        title: 'Orders',
     },
     {
         id: 4,
-        icon: UserIcon,
-        path: '/profile',
-        title: 'Mon compte',
+        icon: NotificationIcon,
+        path: '/repport',
+        title: 'Repport',
     }
 ]
 

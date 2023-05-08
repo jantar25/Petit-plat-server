@@ -44,8 +44,8 @@ const ClientForm = ({toggleForm}) => {
                 </div>
             </div>
             <div className='form-bottom'>
-                <input type='submit' value='Enregistrer' className='submit' />
-                <button onClick={toggleForm} className='cancel'>Fermer</button>
+                <input type='submit' value='Save' className='submit' />
+                <button onClick={toggleForm} className='cancel'>Cancel</button>
             </div>
         </form>
     </div>

@@ -4,15 +4,14 @@ import all_orders from '../../constants/orders';
 import {calculateRange, sliceData} from '../../utils/table-pagination';
 
 import './styles.css';
-import DoneIcon from '../../assets/icons/done.svg';
-import CancelIcon from '../../assets/icons/cancel.svg';
-import RefundedIcon from '../../assets/icons/refunded.svg';
+import ClientForm from '../../components/ClientForm/ClientForm';
 
-function Orders () {
+function Products () {
     const [search, setSearch] = useState('');
     const [orders, setOrders] = useState(all_orders);
     const [page, setPage] = useState(1);
     const [pagination, setPagination] = useState([]);
+    const [toggleForm,setToggleForm] = useState(false);
 
     useEffect(() => {
         setPagination(calculateRange(all_orders, 5));
@@ -41,10 +40,23 @@ function Orders () {
         setOrders(sliceData(all_orders, new_page, 5));
     }
 
+    const handleToggleForm = () => {
+        setToggleForm(!toggleForm)
+    }
+
     return(
         <div className='dashboard-content'>
             <div className='dashboard-content-container'>
+                {toggleForm && 
+                <div className='form-container'>
+                    <ClientForm toggleForm={handleToggleForm} />
+                </div>
+                }
                 <div className='dashboard-content-header'>
+                    <button className='dashbord-header-btn' 
+                      onClick={handleToggleForm}>
+                        Add Produit
+                    </button>
                     <div className='dashboard-content-search'>
                         <input
                             type='text'
@@ -54,42 +66,20 @@ function Orders () {
                             onChange={e => __handleSearch(e)} />
                     </div>
                 </div>
+
                 <table>
                     {orders.length !== 0 ?
                         <tbody>
                             <tr>
                                 <th>ID</th>
                                 <th>DATE</th>
-                                <th>STATUS</th>
-                                <th>COSTUMER</th>
                                 <th>PRODUCT</th>
-                                <th>REVENUE</th>
+                                <th>PRICE</th>
                             </tr>
                             {orders.map((order, index) => (
                                 <tr key={index}>
                                     <td><span>{order.id}</span></td>
                                     <td><span>{order.date}</span></td>
-                                    <td>
-                                        <div>
-                                            {order.status === 'Paid' ?
-                                                <img
-                                                    src={DoneIcon}
-                                                    alt='paid-icon'
-                                                    className='dashboard-content-icon' />
-                                            : order.status === 'Canceled' ?
-                                                <img
-                                                    src={CancelIcon}
-                                                    alt='canceled-icon'
-                                                    className='dashboard-content-icon' />
-                                            : order.status === 'Refunded' ?
-                                                <img
-                                                    src={RefundedIcon}
-                                                    alt='refunded-icon'
-                                                    className='dashboard-content-icon' />
-                                            : null}
-                                            <span>{order.status}</span>
-                                        </div>
-                                    </td>
                                     <td>
                                         <div>
                                             <img 
@@ -99,7 +89,6 @@ function Orders () {
                                             <span>{order.first_name} {order.last_name}</span>
                                         </div>
                                     </td>
-                                    <td><span>{order.product}</span></td>
                                     <td><span>${order.price}</span></td>
                                 </tr>
                             ))}
@@ -128,4 +117,4 @@ function Orders () {
     )
 }
 
-export default Orders;
+export default Products;
