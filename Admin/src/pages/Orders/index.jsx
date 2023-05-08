@@ -58,7 +58,7 @@ function Orders () {
                 <div className='dashboard-content-header'>
                     <button className='dashbord-header-btn' 
                       onClick={handleToggleForm}>
-                        Ajouter Client
+                        Ajouter Produit
                     </button>
                     <div className='dashboard-content-search'>
                         <input

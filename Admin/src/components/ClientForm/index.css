@@ -28,7 +28,7 @@
     font-weight: 700;
 }
 
-.input-container input,select {
+.input-container input,textarea {
     border: none;
     padding: 5px 10px;
     background: rgb(242, 246, 250);

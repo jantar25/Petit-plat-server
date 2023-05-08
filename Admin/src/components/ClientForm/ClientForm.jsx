@@ -1,12 +1,26 @@
-import React from 'react'
+import React,{ useState } from 'react'
 
 import './index.css'
 
 const ClientForm = ({toggleForm}) => {
+    const [inputs,setInputs] = useState({
+        name:'',
+        price:'',
+        description:''
+    })
     
+    const handleChange = (e) => {
+        setInputs({...inputs,[e.target.name]:e.target.value})
+    }
+
     const hanldeSubmit = (e) => {
         e.preventDefault()
-        console.log('Form submitted...')
+        console.log(inputs)
+        setInputs({
+            name:'',
+            price:'',
+            description:''
+        })
     }
   return (
     <div className='form-container'>
@@ -14,34 +28,18 @@ const ClientForm = ({toggleForm}) => {
             <h3>REMPLIS LE FORMULAIRE CI DESSOUS</h3>
             <div className="divide-form">
                 <div className='form-left'>
-                    <h5>INFORMATION DU CLIENT</h5>
+                    <h5>INFORMATION DU MENU</h5>
                     <div className='input-container'>
                         <label htmlFor='name'>Nom:</label>
-                        <input name='name' type='text' placeholder='Nom' />
+                        <input name='name' value={inputs.name} type='text' placeholder='Nom' onChange={handleChange} />
                     </div>
                     <div className='input-container'>
-                        <label htmlFor='surname'>Post-Nom:</label>
-                        <input name='surname' type='text' placeholder='Post nom' />
+                        <label htmlFor='price'>Prix:</label>
+                        <input name='price' value={inputs.price} type='text' placeholder='price' onChange={handleChange} />
                     </div>
                     <div className='input-container'>
-                        <label htmlFor='address'>Address:</label>
-                        <input name='address' type='text' placeholder='Address' />
-                    </div>
-                    <div className='input-container'>
-                        <label htmlFor='type'>Type:</label>
-                        <select name='type' placeholder='Type'>
-                            <option>Persone 1</option>
-                            <option>Persone 2</option>
-                            <option>Persone 3</option>
-                            <option>Persone 4</option>
-                        </select>
-                    </div>
-                </div>
-                <div className='form-right'>
-                    <h5>INFORMATION DE L'ENREGISTREUR</h5>
-                    <div className='input-container'>
-                        <label htmlFor='number'>Numero de l'agent:</label>
-                        <input name='number' type='text' placeholder="Numero de l'agent" />
+                        <label htmlFor='description'>Description:</label>
+                        <textarea name='description' value={inputs.description}  type='text' placeholder='description' onChange={handleChange} />
                     </div>
                 </div>
             </div>
