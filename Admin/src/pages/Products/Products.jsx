@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import axios from "axios"
 
 import all_orders from '../../constants/orders';
 import {calculateRange, sliceData} from '../../utils/table-pagination';
@@ -9,14 +10,28 @@ import ClientForm from '../../components/ClientForm/ClientForm';
 function Products () {
     const [search, setSearch] = useState('');
     const [orders, setOrders] = useState(all_orders);
+    const [products,setProducts] = useState([])
     const [page, setPage] = useState(1);
     const [pagination, setPagination] = useState([]);
     const [toggleForm,setToggleForm] = useState(false);
 
+    console.log(products)
     useEffect(() => {
         setPagination(calculateRange(all_orders, 5));
         setOrders(sliceData(all_orders, page, 5));
     }, [page]);
+
+    useEffect(()=>{
+        const getProducts= async ()=>{
+            try {
+                const res = await axios.get("http://localhost/petit-plat-server/Server/Items/products")   
+                 setProducts(res.data);
+            } catch(err){
+                console.log(err)
+            }
+        };
+        getProducts();  
+    },[])
 
     // Search
     const __handleSearch = (event) => {

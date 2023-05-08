@@ -1,4 +1,5 @@
 import React,{ useState } from 'react'
+import axios from "axios"
 
 import './index.css'
 import { storage } from '../../Firebase/Firebase'
@@ -14,6 +15,15 @@ const ClientForm = ({toggleForm}) => {
     const handleChange = (e) => {
         setInputs({...inputs,[e.target.name]:e.target.value})
     }
+
+    const postProduct= async (product)=>{
+        try {
+            const res = await axios.post("http://localhost/petit-plat-server/Server/Items/products",product)   
+             console.log(res.data);
+        } catch(err){
+            console.log(err)
+        }
+    };
 
     const hanldeSubmit = (e) => {
         e.preventDefault()
@@ -31,8 +41,8 @@ const ClientForm = ({toggleForm}) => {
                 .child(image.name)
                 .getDownloadURL()
                 .then(url => {
-                const updatedInputs = {...inputs,image: url};
-                console.log(updatedInputs)
+                const updatedInputs = {...inputs,imageURL: url};
+                postProduct(updatedInputs)
                 setImage('')
                 setInputs({
                     name:'',
