@@ -6,22 +6,8 @@ class Database
     private $SERVERNAME = "localhost";
     private $USERNAME = "root";
     private $PASSWORD = "";
-    private $DB_NAME;
-    private $TABLE_NAME;
-
-    // getters
-    public function getDBAndTableName()
-    {
-        return "$this->DB_NAME $this->TABLE_NAME";
-    }
-
-    // setters
-
-    public function setDBAndTableName($dbName, $tableName)
-    {
-        $this->DB_NAME = $dbName;
-        $this->TABLE_NAME = $tableName;
-    }
+    private $BD_NAME = "petitplat";
+    private $TABLE_NAME = "menu";
 
     public function createDB()
     {
@@ -36,7 +22,7 @@ class Database
 
 
         //sql query to create a database named petit-plat
-        $query = "CREATE DATABASE {$this->DB_NAME}";
+        $query = "CREATE DATABASE {$this->BD_NAME}";
         if ($CONN->query($query)) {
             echo "Database created successfully";
         } else {
@@ -49,7 +35,7 @@ class Database
     // sql to create table
     public function createTable()
     {
-        $CONN = new mysqli($this->SERVERNAME, $this->USERNAME, $this->PASSWORD, $this->DB_NAME);
+        $CONN = new mysqli($this->SERVERNAME, $this->USERNAME, $this->PASSWORD, $this->BD_NAME);
         $sqlTable = "CREATE TABLE {$this->TABLE_NAME} (
             id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             names VARCHAR(30) NOT NULL,
@@ -60,7 +46,7 @@ class Database
             )";
 
         if ($CONN->query($sqlTable)) {
-            echo "Table created successfully";
+            echo "Table menu created successfully";
         } else {
             echo "Error creating table: " . $CONN->error;
         }
@@ -69,8 +55,7 @@ class Database
     }
 }
 
-$DB = new Database();
-$DB->setDBAndTableName("PetitPlatResto", "Products");
-echo $DB->getDBAndTableName();
-$DB->createDB();
-$DB->createTable();
+$connection = new Database();
+
+echo $connection->createDB();
+echo $connection->createTable();

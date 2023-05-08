@@ -2,19 +2,42 @@
 
 class Connect_Database
 {
-    private $SERVERNAME = "localhost";
-    private $USERNAME = "root";
-    private $PASSWORD = "";
-    private $BD_NAME = "petitplat";
+    private const SERVERNAME = "localhost";
+    private const USERNAME = "root";
+    private const PASSWORD = "";
+    private const DB_NAME = "PetitPlatResto";
 
-    //connection to Database
-    public function getConnection()
+    // Data Source Network
+    private $DSN = 'mysql:host=' . self::SERVERNAME . ';dbname=' . self::DB_NAME . '';
+
+    // conn variable
+    protected $CONN = null;
+
+    // Constructor Function
+    public function __construct()
     {
-        $CONN = new mysqli($this->SERVERNAME, $this->USERNAME, $this->PASSWORD, $this->BD_NAME);
-        // Check connection
-        if ($CONN->connect_error) {
-            die("Connection failed: " . $CONN->connect_error);
+        try {
+            $this->CONN = new PDO($this->DSN, self::USERNAME, self::PASSWORD);
+            $this->CONN->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die('Connectionn Failed : ' . $e->getMessage());
         }
-        return $CONN;
+        return $this->CONN;
+    }
+
+    // Sanitize Inputs
+    public function test_input($data)
+    {
+        $data = strip_tags($data);
+        $data = htmlspecialchars($data);
+        $data = stripslashes($data);
+        $data = trim($data);
+        return $data;
+    }
+
+    // JSON Format Converter Function
+    public function message($content, $status)
+    {
+        return json_encode(['message' => $content, 'error' => $status]);
     }
 }
