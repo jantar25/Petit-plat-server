@@ -175,6 +175,20 @@ td span {
     z-index: 9;
 }
 
+.operate-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.operate-container .update-Btn {
+    padding: 5px 10px;
+    color: #FFFFFF;
+    background: green;
+    border-radius: 5px;
+    cursor: pointer;
+} 
+
 @media screen and (max-width: 480px) {
     .dashboard-content-header {
         display: flex;

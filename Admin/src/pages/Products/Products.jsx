@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios"
+import { MdDelete } from 'react-icons/md';
 
 import all_orders from '../../constants/orders';
 import {calculateRange, sliceData} from '../../utils/table-pagination';
@@ -15,7 +16,6 @@ function Products () {
     const [pagination, setPagination] = useState([]);
     const [toggleForm,setToggleForm] = useState(false);
 
-    console.log(products)
     useEffect(() => {
         setPagination(calculateRange(all_orders, 5));
         setOrders(sliceData(all_orders, page, 5));
@@ -59,6 +59,14 @@ function Products () {
         setToggleForm(!toggleForm)
     }
 
+    const deleteProduct = async(id) => {
+        try {
+            await axios.delete(`http://localhost/petit-plat-server/Server/Items/products/${id}`) 
+        } catch(err){
+            console.log(err)
+        }
+    }
+
     return(
         <div className='dashboard-content'>
             <div className='dashboard-content-container'>
@@ -83,28 +91,39 @@ function Products () {
                 </div>
 
                 <table>
-                    {orders.length !== 0 ?
+                    {products.length !== 0 ?
                         <tbody>
                             <tr>
                                 <th>ID</th>
                                 <th>DATE</th>
                                 <th>PRODUCT</th>
                                 <th>PRICE</th>
+                                <th>OPERATE</th>
                             </tr>
-                            {orders.map((order, index) => (
-                                <tr key={index}>
-                                    <td><span>{order.id}</span></td>
-                                    <td><span>{order.date}</span></td>
+                            {products.map((product) => (
+                                <tr key={product.id}>
+                                    <td><span>{product.id}</span></td>
+                                    <td><span>{product.postdate}</span></td>
                                     <td>
                                         <div>
                                             <img 
-                                                src={order.avatar}
+                                                src={product.imageURL}
                                                 className='dashboard-content-avatar'
-                                                alt={order.first_name + ' ' +order.last_name} />
-                                            <span>{order.first_name} {order.last_name}</span>
+                                                alt={product.names} />
+                                            <span>{product.names}</span>
                                         </div>
                                     </td>
-                                    <td><span>${order.price}</span></td>
+                                    <td><span>${product.amount}</span></td>
+                                    <td>
+                                        <div className='operate-container'>
+                                            <MdDelete
+                                                style={{fontSize:'30px',cursor:'pointer',color:'red'}} 
+                                                onClick={() => deleteProduct(product.id)}/>
+                                            <span className='update-Btn'>
+                                                Update
+                                            </span>
+                                        </div>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
