@@ -18,7 +18,7 @@ const ClientForm = ({toggleForm}) => {
 
     const postProduct= async (product)=>{
         try {
-            const res = await axios.post("http://localhost/petit-plat-server/Server/Items/products",product)   
+            const res = await axios.post("http://petit-plat.epizy.com",product)   
              console.log(res.data);
         } catch(err){
             console.log(err)

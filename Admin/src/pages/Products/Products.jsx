@@ -14,7 +14,7 @@ function Products () {
     useEffect(()=>{
         const getProducts= async ()=>{
             try {
-                const res = await axios.get("http://localhost/petit-plat-server/Server/Items/products")   
+                const res = await axios.get("https://le-petit-plat.000webhostapp.com")   
                  setProducts(res.data);
             } catch(err){
                 console.log(err)
@@ -41,7 +41,7 @@ function Products () {
 
     const deleteProduct = async(id) => {
         try {
-            await axios.delete(`http://localhost/petit-plat-server/Server/Items/products/${id}`) 
+            await axios.delete(`https://le-petit-plat.000webhostapp.com/?id=${id}`) 
         } catch(err){
             console.log(err)
         }

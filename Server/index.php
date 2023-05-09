@@ -6,7 +6,7 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, X-Requested-With");
 
 // Include action.php file
-include_once '../Class/db.php';
+include_once './db.php';
 
 // Create object of Products class
 $product = new Database();
