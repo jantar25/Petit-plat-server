@@ -2,10 +2,14 @@
 
 class Connect_Database
 {
-    private const SERVERNAME = "sql300.epizy.com";
-    private const USERNAME = "epiz_34169727";
-    private const PASSWORD = "61rJc8bvrOB4J";
-    private const DB_NAME = "epiz_34169727_PetitPlatResto";
+    // private const SERVERNAME = "sql306.epizy.com";
+    // private const USERNAME = "epiz_34170761";
+    // private const PASSWORD = "NFgkgqGhEcu";
+    // private const DB_NAME = "epiz_34170761_PetitPlatResto";
+    private const SERVERNAME = "localhost";
+    private const USERNAME = "root";
+    private const PASSWORD = "";
+    private const DB_NAME = "PetitPlatResto";
 
     // Data Source Network
     private $DSN = 'mysql:host=' . self::SERVERNAME . ';dbname=' . self::DB_NAME . '';
