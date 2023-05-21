@@ -1,0 +1,61 @@
+/* OUR DISHES SECTION  */
+
+.dishes-container {
+    padding: 1rem 4%;
+}
+
+.dishes-title-container {
+    margin: 10px;
+    text-align: center;
+}
+
+.dishes-title-container h3 {
+    color: var(--black);
+}
+
+.dishes-title-container h1 {
+    color: var(--bright-color);
+}
+
+.dishes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    padding: 10px 0;
+}
+
+.dish {
+    padding: 10px;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+
+.dish img {
+    width: 50px;
+}
+
+.dish h2 {
+    color: var(--black);
+}
+
+.dish p {
+    color: var(--light-color);
+    font-size: .8rem;
+}
+
+@media only screen and (min-width: 650px) {
+    .dishes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .dishes-container {
+        padding: 4rem 4%;
+    }
+}
+
+@media only screen and (min-width: 850px) {
+    .dishes {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

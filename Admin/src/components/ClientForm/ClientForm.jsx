@@ -3,6 +3,7 @@ import axios from "axios"
 
 import './index.css'
 import { storage } from '../../Firebase/Firebase'
+import apiURL from '../../constants/constant'
 
 const ClientForm = ({toggleForm}) => {
     const [image,setImage] = useState()
@@ -18,7 +19,7 @@ const ClientForm = ({toggleForm}) => {
 
     const postProduct= async (product)=>{
         try {
-            const res = await axios.post("http://petit-plat.epizy.com",product)   
+            const res = await axios.post(apiURL,product)   
              console.log(res.data);
         } catch(err){
             console.log(err)

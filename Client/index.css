@@ -1,0 +1,15 @@
+:root {
+    --bright-color:#f55556;
+    --black:#192a56;
+    --light-color:#666;
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+
+* {
+    font-family: poppins, 'sans-serif';
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    transition: all .2s linear;
+}

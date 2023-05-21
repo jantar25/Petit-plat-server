@@ -1,0 +1,98 @@
+/* HERO  */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    padding: 1rem 5%;
+}
+
+.hero-left {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-left .juggle {
+    display: inline-flex;
+    background: #fdecec;
+    padding: 10px 15px;
+    color: var(--bright-color);
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 1rem;
+    margin-bottom: 1.3rem;
+}
+
+.hero-left h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--black);
+    scroll-padding: -.05em;
+    margin-bottom: 1rem;
+}
+
+.hero-left h1 span {
+color: var(--bright-color);
+}
+
+.hero-left p {
+    color: var(--light-color);
+    margin-bottom: 2rem;
+}
+
+.hero-left button {
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    background: var(--bright-color);
+}
+
+.hero-right {
+    flex: 1;
+    height: 100%;
+}
+
+.hero-right .imgContainer {
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+}
+
+.hero-right .imgContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@media only screen and (min-width: 650px) {
+    .hero {
+        height: calc(100vh - 80px);
+        flex-direction: row;        
+    }
+    .hero-left .juggle {
+        border-radius: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .hero-right .imgContainer {
+        width: 100%;
+        height: 100%;
+    }
+    .hero-left h1 {
+        font-size: 2.3rem;
+    } 
+}
+
+@media only screen and (min-width: 825px) {
+    .hero-left h1 {
+        font-size: 3rem;
+    } 
+}

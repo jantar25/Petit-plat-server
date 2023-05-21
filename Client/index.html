@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css" >
+    <link rel="stylesheet" href="./Css/header.css" >
+    <link rel="stylesheet" href="./Css/Hero.css" >
+    <link rel="stylesheet" href="./Css/dishes.css" >
+    <link rel="stylesheet" href="./Css/about.css" >
+    <link rel="stylesheet" href="./Css/menu.css" >
+    <link rel="stylesheet" href="./Css/downloadApp.css" >
+    <link rel="stylesheet" href="./Css/testimonial.css" >
+    <link rel="stylesheet" href="./Css/footer.css" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/jpg" href="./Assets/food-serving.png"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="https://kit.fontawesome.com/e6e684bb76.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <title>Le Petit Plat</title>
+</head>
+<body>
+    <!--    HEADER       -->
+    <header>
+        <a href="#" class="logo">
+            <img src="./Assets/food-serving.png" alt="logo" />
+            <h3>Le Petit Plat</h3>
+        </a>
+        <nav class="navbar">
+            <a href="#dishes">Dishes</a>
+            <a href="#about">About</a>
+            <a href="#menuItems">Menu</a>
+            <a href="#app">App</a>
+            <a href="#review">Review</a>
+        </nav>
+        </div>
+        <div class="icons">
+            <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-solid fa-bars" id="menu"></i>
+        </div>
+    </header>
+
+        <!--    SEARCH FORM       -->
+    <div class="searchForm">
+        <form id="searchForm">
+            <input type="search" placeholder="Search..." id="searchInput" />
+            <label for="searchInput" class="fas fa-search" ></label>
+        </form>
+    </div>
+
+    <!--    HIRO SECTION       -->
+    <section class="hero" id="hero">
+        <div class="hero-left">
+            <h3 class="juggle">More than Faster &#127828</h3>
+            <h1>Food delivered in as little as <span>2 Hours.</span></h1>
+            <p>Feed yourself and your familly inside the confort of your house without getting out.</p>
+            <button>Order now</button>
+        </div>
+        <div class="hero-right">
+            <div class="imgContainer">
+                <img src="./Assets/chef.png" alt="Chef-photo"/>
+            </div>
+        </div>
+    </section>
+
+    <!--    SPECIAL DISHES SECTION       -->
+
+    <section class="dishes-container" id="dishes">
+        <div class="dishes-title-container">
+            <h3>Dishes we Serve</h3>
+            <h1>POPULAR DISHES</h1>
+        </div>
+        <div class="dishes"></div>
+    </section>
+
+        <!--    ABOUT US SECTION       -->
+
+        <section class="about-container" id="about">
+            <div class="about-title-container">
+                <h3>About Us</h3>
+                <h1>WHY CHOOSE US</h1>
+            </div>
+            <div class="about">
+                <div class="left">
+                    <img src="./Assets/about.png" alt="about" />
+                </div>
+                <div class="right">
+                    <h1>Best Food In The Region.</h1>
+                    <p>
+                        Our cuisine is simple yet unique with the typical diet consisting of potatoes,
+                        corn, peas, millet and fruit. We cook meat more than a few times a month. 
+                        For those people who live near lakes also, we incorporate fish into their diets,
+                         particularly tilapia.
+                    </p>
+                    <div class="services">
+                        <div class="service">
+                            <i class="fa-solid fa-truck"></i>
+                            <span>Free Delivery</span>
+                        </div>
+                        <div class="service">
+                            <i class="fa-solid fa-dollar-sign"></i>
+                            <span>Easy Payment</span>
+                        </div>
+                        <div class="service">
+                            <i class="fa-solid fa-headset"></i>
+                            <span>24/7 Service</span>
+                        </div>
+                    </div>
+                    <button>Learn More</button>
+                </div>
+            </div>
+        </section>
+
+        <!--    OUR MENU SECTION       -->
+
+        <section class="menu-container" id="menuItems">
+            <div class="menu-title-container">
+                <h3>Our Menu</h3>
+                <h1>TODAY'S SPECIALITY</h1>
+            </div>
+            <div class="menu"></div>
+        </section>
+
+        <!--    DOWNLOAD APP SECTION       -->
+
+        <section class="app-container" id="app">
+            <div class="img-container">
+                <img src="./Assets/phone.png" alt="phone app" />
+            </div>
+            <div class="app">
+                <h5>Download our App</h5>
+                <h1 class="title">Get <span>le petit plat</span> app to easily order <span>.</span></h1>
+                <p>
+                    The mobile application is more custmise and efficient for easy ordering
+                    and food tracking on map.
+                </p>
+                <div class="download-container">
+                    <div class="download">
+                        <img src="./Assets/appStore.jpg" alt="appStore" />
+                        <h6>App Store</h6>
+                    </div>
+                    <div class="download">
+                        <img src="./Assets/playStore.png" alt="playStore" />
+                        <h6>Play Store</h6>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--    TESTIMONIAL SECTION       -->
+
+        <section class="testimonial-container" id="review">
+            <div class="testimonial-title-container">
+                <h3>Customer's Review</h3>
+                <h1>WHAT OUR CLIENTS SAY</h1>
+            </div>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper slide-container"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+
+        <!--    FOOTER SECTION       -->
+
+        <section class="footer-container">
+            <div class="first-row">
+                <div class="column logo">
+                    <img src="./Assets/food-serving.png" alt="logo" />
+                    <p>Feeding you and your familly with clean and healthier food is our priority</p>
+                </div>
+                <div class="column">
+                    <div>
+                        <h3>About</h3>
+                        <a href="#">About us</a>
+                        <a href="#">Features</a>
+                        <a href="#">News&Blog</a>
+                    </div>
+                    <div>
+                        <h3>Company</h3>
+                        <a href="#">How we work</a>
+                        <a href="#">Capital</a>
+                        <a href="#">Support</a>
+                    </div>
+                </div>
+                <div class="column">
+                    <div>
+                        <h3>Support</h3>
+                        <a href="#">Admin</a>
+                        <a href="#">Support Center</a>
+                        <a href="#">Contact Us</a>
+                    </div>
+                    <div>
+                        <h3>Follow Us</h3>
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="second-row">
+                <div class="contract">
+                    <a href="#">Terms&Agreement</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <p class="copyright">Ⓒ Jantar 2023, All right reserved.</p>
+            </div>
+        </section>
+
+    <script src="./Javascript/header.js"></script>
+    <script src="./Javascript/dishes.js"></script>
+    <script src="./Javascript/menu.js"></script>
+    <script src="./Javascript/testimonials.js"></script>
+</body>
+</html>

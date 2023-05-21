@@ -1,0 +1,101 @@
+/* ABOUT US SECTION  */
+
+.about-container {
+    padding: 1rem 4%;
+}
+
+.about-title-container {
+    margin: 10px;
+    text-align: center;
+}
+
+.about-title-container h3 {
+    color: var(--black);
+}
+
+.about-title-container h1 {
+    color: var(--bright-color);
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.about .left {
+    flex: 1;
+    margin: 0 auto;
+}
+
+.left img {
+    width: 100%;
+    height: 100%;
+}
+
+.about .right {
+    flex: 1;
+    text-align: center;
+}
+
+.right h1 {
+    color: var(--black);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.right p {
+    color: var(--light-color);
+    margin-bottom: 40px;
+}
+
+.right .services {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.right .services .service {
+    margin: 10px;
+    padding: 10px 15px;
+    background: #eee;
+}
+
+.service i {
+    color: var(--bright-color);
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+
+.service span {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.right button {
+    background: var(--bright-color);
+    padding: .5rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+@media only screen and (min-width: 450px) {
+    .right .services {
+        flex-direction: row;
+    }
+    .about-container {
+        padding: 4rem 4%;
+    }
+    .about .right {
+        text-align: start;
+    }
+}
+@media only screen and (min-width: 650px) {
+    .about {
+        flex-direction: row;
+    }
+}

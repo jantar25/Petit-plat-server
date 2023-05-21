@@ -25,7 +25,7 @@ class Database extends Connect_Database
     // Insert an Product in the database
     public function insert($name, $imageURL, $amount, $description)
     {
-        $sql = 'INSERT INTO Products (names, imageURL, descriptions,amount) VALUES (:name, :imageURL, :description, :amount)';
+        $sql = 'INSERT INTO products (names, imageURL, descriptions,amount) VALUES (:name, :imageURL, :description, :amount)';
         $stmt = $this->CONN->prepare($sql);
         $stmt->execute(['name' => $name, 'imageURL' => $imageURL, 'description' => $description, 'amount' => $amount]);
         return true;
@@ -43,7 +43,7 @@ class Database extends Connect_Database
     // Delete an Product from database
     public function delete($id)
     {
-        $sql = 'DELETE FROM Products WHERE id = :id';
+        $sql = 'DELETE FROM products WHERE id = :id';
         $stmt = $this->CONN->prepare($sql);
         $stmt->execute(['id' => $id]);
         return true;

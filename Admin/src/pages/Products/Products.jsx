@@ -4,6 +4,7 @@ import { MdDelete } from 'react-icons/md';
 
 import './styles.css';
 import ClientForm from '../../components/ClientForm/ClientForm';
+import apiURL from '../../constants/constant'
 
 function Products () {
     const [search, setSearch] = useState('');
@@ -14,7 +15,7 @@ function Products () {
     useEffect(()=>{
         const getProducts= async ()=>{
             try {
-                const res = await axios.get("https://le-petit-plat.000webhostapp.com")   
+                const res = await axios.get(apiURL)   
                  setProducts(res.data);
             } catch(err){
                 console.log(err)
@@ -41,7 +42,7 @@ function Products () {
 
     const deleteProduct = async(id) => {
         try {
-            await axios.delete(`https://le-petit-plat.000webhostapp.com/?id=${id}`) 
+            await axios.delete(`${apiURL}/?id=${id}`) 
         } catch(err){
             console.log(err)
         }
